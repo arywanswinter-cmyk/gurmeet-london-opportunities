@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gurmeet Kaur — London Opportunities (SW6)</title>
+<meta name="description" content="Clean, minimal London recruitment index for Gurmeet Kaur — Salaries, locations, and distances from Imperial Wharf (SW6 2ZH).">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+  /* ------------------------------------------------------------------
+     GURMEET KAUR — 10/10 MINIMAL MUSEUM-CATALOGUE REGISTER
+     Pure white ground · Crisp ink · Tabular figures · Only essentials
+     ------------------------------------------------------------------ */
+  :root {
+    --paper: #ffffff;
+    --paper-subtle: #fbfaf8;
+    --paper-active: #f3efe8;
+    --paper-hover: #f7f5f0;
+    --ink: #141413;
+    --ink-secondary: #4a4843;
+    --mute: #78756e;
+    --hairline: rgba(0, 0, 0, 0.11);
+    --hairline-strong: rgba(0, 0, 0, 0.22);
+    --salary-ink: #114b2a;
+    --salary-bg: #edf5f0;
+    --salary-border: #c4decb;
+    --accent-home: #9e2a2b;
+    --serif: "Cormorant Garamond", "Adobe Caslon Pro", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 16px;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  body {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 0.84rem;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (max-width: 1024px) {
+    body {
+      height: auto;
+      overflow: auto;
+    }
+  }
+
+  a { color: inherit; text-decoration: none; }
+  button, input, select { font: inherit; color: inherit; background: none; border: none; }
+  a:focus-visible, button:focus-visible, [tabindex="0"]:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.18); }
+
+  .shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  @media (max-width: 1024px) {
+    .shell { height: auto; }
+  }
+
+  /* ------------------------------------------------------------------
+     1. MINIMAL MASTHEAD
+     ------------------------------------------------------------------ */
+  .site-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    padding: 14px 28px 12px;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper);
+    flex-shrink: 0;
+  }
+
+  .brand-group {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 1.85rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .wordmark:hover {
+    opacity: 0.85;
+  }
+
+  .head-caption {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--mute);
+  }
+
+  .head-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .boards-strip {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-family: var(--serif);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+
+  .boards-strip span {
+    color: var(--ink);
+  }
+
+  .boards-strip a {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.22);
+    text-underline-offset: 3px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+  .boards-strip a:hover {
+    color: var(--ink);
+    text-decoration-color: var(--ink);
+  }
+
+  .home-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 4px 10px;
+    border: 1px solid var(--hairline-strong);
+    background: var(--paper-subtle);
+  }
+
+  .home-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-home);
+  }
+
+  /* ------------------------------------------------------------------
+     2. SINGLE-LINE FILTER BAR
+     ------------------------------------------------------------------ */
+  .controls-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    padding: 8px 28px;
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper);
+    flex-shrink: 0;
+  }
+
+  .cat-tabs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .cat-btn {
+    padding: 4px 9px;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: var(--mute);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.14s ease;
+    white-space: nowrap;
+  }
+  .cat-btn:hover {
+    color: var(--ink);
+    background: var(--paper-hover);
+  }
+  .cat-btn.active {
+    color: var(--ink);
+    font-weight: 600;
+    border-color: var(--ink);
+    background: var(--paper);
+  }
+
+  .cat-count {
+    font-size: 0.68rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--mute);
+    margin-left: 3px;
+  }
+  .cat-btn.active .cat-count {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .filter-inputs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .minimal-input,
+  .minimal-select {
+    height: 30px;
+    padding: 0 9px;
+    font-size: 0.76rem;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--hairline-strong);
+    outline: none;
+    transition: border-color 0.14s ease;
+  }
+  .minimal-input { width: 195px; }
+  .minimal-input::placeholder { color: var(--mute); }
+  .minimal-input:focus,
+  .minimal-select:focus,
+  .minimal-select:hover {
+    border-color: var(--ink);
+  }
+
+  /* ------------------------------------------------------------------
+     3. WORKSPACE: CLEAN TABLE LEDGER (LEFT) + MAP & SUMMARY (RIGHT)
+     ------------------------------------------------------------------ */
+  .workspace {
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(520px, 58%) 1fr;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  @media (max-width: 1024px) {
+    .workspace {
+      grid-template-columns: 1fr;
+      overflow: visible;
+    }
+  }
+
+  /* LEFT: DATA TABLE */
+  .table-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-inline-size: 100%;
+    height: 100%;
+    border-right: 1px solid var(--hairline);
+    container-type: inline-size;
+    background: var(--paper);
+  }
+
+  .table-wrapper:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: -2px;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    --label-2: "Location";
+    --label-3: "From SW6";
+    --label-4: "Remuneration";
+    --label-5: "Access";
+  }
+
+  thead {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: var(--paper-subtle);
+  }
+
+  thead th {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 2;
+    background: var(--paper-subtle);
+    padding: 9px 12px;
+    text-align: left;
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--mute);
+    border-bottom: 1px solid var(--hairline);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  thead th:nth-child(1) { width: 35%; }
+  thead th:nth-child(2) { width: 18%; }
+  thead th:nth-child(3) { width: 15%; }
+  thead th:nth-child(4) { width: 21%; }
+  thead th:nth-child(5) { width: 11%; text-align: right; }
+
+  thead th.sortable {
+    cursor: pointer;
+  }
+  thead th.sortable:hover,
+  thead th.sortable.sorted {
+    color: var(--ink);
+  }
+
+  tbody tr {
+    cursor: pointer;
+    transition: background-color 0.12s ease;
+  }
+
+  tbody tr:hover th,
+  tbody tr:hover td {
+    background: var(--paper-hover);
+  }
+
+  tbody tr.active th,
+  tbody tr.active td {
+    background: var(--paper-active);
+  }
+
+  tbody th,
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--hairline);
+    vertical-align: top;
+    text-align: left;
+    background: var(--paper);
+    transition: background-color 0.12s ease;
+  }
+
+  tbody th {
+    font-weight: 400;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  tbody tr.active th {
+    box-shadow: inset 3px 0 0 var(--ink);
+  }
+
+  .row-org-line {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 2px;
+  }
+
+  .row-org {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mute);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .save-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: #c4c1b9;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s ease;
+    flex-shrink: 0;
+  }
+  .save-toggle:hover { color: #854d0e; }
+  .save-toggle.saved { color: #b45309; }
+
+  .row-title {
+    display: block;
+    font-family: var(--serif);
+    font-size: 1.18rem;
+    font-weight: 600;
+    line-height: 1.22;
+    color: var(--ink);
+  }
+
+  .cell-loc {
+    font-size: 0.8rem;
+    color: var(--ink-secondary);
+    line-height: 1.35;
+  }
+
+  .cell-postcode {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+    margin-top: 2px;
+  }
+
+  .cell-dist {
+    font-variant-numeric: tabular-nums;
+    line-height: 1.35;
+  }
+
+  .dist-miles {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .dist-time {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--mute);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  .cell-salary {
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--salary-ink);
+    line-height: 1.35;
+  }
+
+  .cell-contract {
+    display: block;
+    font-size: 0.69rem;
+    font-weight: 400;
+    color: var(--mute);
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  .cell-action {
+    text-align: right;
+    padding: 10px 8px !important;
+  }
+
+  .apply-link {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 7px;
+    border: 1px solid var(--hairline-strong);
+    color: var(--ink);
+    background: var(--paper);
+    white-space: nowrap;
+    transition: all 0.14s ease;
+  }
+  .apply-link:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  /* Container query for narrow / mobile stacked cards */
+  @container (width < 500px) {
+    table, thead, tbody, tr, th, td {
+      display: block;
+    }
+
+    thead { display: none; }
+
+    tbody tr {
+      margin: 10px 12px;
+      border: 1px solid var(--hairline-strong);
+      background: var(--paper);
+    }
+
+    tbody th {
+      background: var(--paper-subtle);
+      border-bottom: 1px solid var(--hairline);
+      padding: 10px 12px;
+    }
+
+    tbody td:not([colspan]) {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 7px 12px;
+      text-align: right;
+    }
+
+    tbody td[colspan] {
+      display: block;
+      text-align: center;
+    }
+
+    .cell-val {
+      text-align: right;
+      min-width: 0;
+    }
+
+    td:nth-child(2)::before {
+      content: var(--label-2) ": ";
+      font-size: 0.67rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      flex-shrink: 0;
+    }
+    td:nth-child(3)::before {
+      content: var(--label-3) ": ";
+      font-size: 0.67rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      flex-shrink: 0;
+    }
+    td:nth-child(4)::before {
+      content: var(--label-4) ": ";
+      font-size: 0.67rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      flex-shrink: 0;
+    }
+    td:nth-child(5)::before {
+      content: var(--label-5) ": ";
+      font-size: 0.67rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mute);
+      flex-shrink: 0;
+    }
+  }
+
+  /* RIGHT: MAP + COMPACT SELECTED ROLE CARD */
+  .map-column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    background: var(--paper);
+  }
+
+  @media (max-width: 1024px) {
+    .map-column {
+      height: auto;
+      border-top: 1px solid var(--hairline);
+    }
+  }
+
+  .map-canvas-wrap {
+    position: relative;
+    height: 40%;
+    min-height: 250px;
+    max-height: 330px;
+    background: #f2f0ec;
+    border-bottom: 1px solid var(--hairline);
+  }
+
+  @media (max-width: 1024px) {
+    .map-canvas-wrap {
+      height: 300px;
+      min-height: 300px;
+      max-height: none;
+    }
+  }
+
+  #london-map {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .leaflet-tile-pane {
+    filter: contrast(104%) brightness(99%);
+  }
+
+  .map-overlay-bar {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    right: 10px;
+    z-index: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    pointer-events: none;
+  }
+
+  .map-badge {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--hairline-strong);
+    padding: 4px 10px;
+    font-size: 0.71rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    max-width: 78%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .map-actions {
+    display: flex;
+    gap: 5px;
+    pointer-events: auto;
+  }
+
+  .map-tool-btn {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--hairline-strong);
+    padding: 4px 8px;
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.14s ease;
+  }
+  .map-tool-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* FOCUSED ROLE SUMMARY CARD BELOW MAP */
+  .focus-card {
+    flex: 1;
+    min-height: 0;
+    padding: 18px 22px;
+    background: var(--paper);
+    overflow-y: auto;
+  }
+
+  .focus-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+  .focus-kicker {
+    font-size: 0.67rem;
+    font-weight: 600;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-bottom: 2px;
+  }
+
+  .focus-title {
+    font-family: var(--serif);
+    font-size: 1.48rem;
+    font-weight: 600;
+    line-height: 1.18;
+    color: var(--ink);
+  }
+
+  .focus-salary {
+    font-size: 0.86rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    color: var(--salary-ink);
+    background: var(--salary-bg);
+    border: 1px solid var(--salary-border);
+    white-space: nowrap;
+    padding: 3px 8px;
+  }
+
+  .focus-route {
+    font-size: 0.77rem;
+    color: var(--ink);
+    padding: 7px 11px;
+    background: var(--paper-subtle);
+    border-left: 2px solid var(--ink);
+    margin-bottom: 10px;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.45;
+  }
+
+  .focus-summary {
+    font-size: 0.81rem;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+    margin-bottom: 10px;
+  }
+
+  .focus-fit {
+    font-size: 0.77rem;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+    background: var(--paper-subtle);
+    padding: 8px 11px;
+    border-top: 1px solid var(--hairline);
+    margin-bottom: 12px;
+  }
+  .focus-fit strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .focus-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.71rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid var(--ink);
+    transition: opacity 0.15s ease;
+  }
+  .btn-primary:hover { opacity: 0.86; }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.71rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    background: var(--paper);
+    color: var(--ink);
+    border: 1px solid var(--hairline-strong);
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- 1. MINIMAL MASTHEAD -->
+  <header class="site-head">
+    <div class="brand-group">
+      <a class="wordmark" href="https://gurmeetkaur.netlify.app" target="_blank" rel="noopener" title="View Gurmeet Kaur Portfolio">Gurmeet Kaur</a>
+      <span class="head-caption">London Opportunity &amp; Commute Directory</span>
+    </div>
+
+    <div class="head-right">
+      <nav class="boards-strip" aria-label="Live UK Vacancy Boards">
+        <span>Live Search Feeds:</span>
+        <a href="https://www.artsjobs.org.uk/index.php?id=25" target="_blank" rel="noopener">ArtsJobs</a>
+        <a href="https://www.museumsassociation.org/careers/find-a-job/" target="_blank" rel="noopener">Museums Assoc.</a>
+        <a href="https://le.ac.uk/museum-studies/jobs" target="_blank" rel="noopener">Leicester Desk</a>
+        <a href="https://teaching-vacancies.service.gov.uk/jobs?location=SW6+2ZH&radius=5" target="_blank" rel="noopener">DfE SW6</a>
+        <a href="https://www.tes.com/jobs/search?keywords=English+OR+Humanities+OR+Primary&location=Fulham%2C+London" target="_blank" rel="noopener">TES</a>
+      </nav>
+      <div class="home-pill" title="Distances and transit calculated from Imperial Wharf Station, SW6 2ZH">
+        <span class="home-dot"></span>
+        Imperial Wharf · SW6 2ZH
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. SINGLE-LINE FILTER BAR -->
+  <section class="controls-bar" aria-label="Filter opportunities">
+    <div class="cat-tabs" role="tablist" aria-label="Role categories">
+      <button type="button" role="tab" aria-selected="true" class="cat-btn active" data-cat="all" onclick="setCategory('all')">
+        All <span class="cat-count" id="count-all">0</span>
+      </button>
+      <button type="button" role="tab" aria-selected="false" class="cat-btn" data-cat="museum" onclick="setCategory('museum')">
+        Curator &amp; Museum <span class="cat-count" id="count-museum">0</span>
+      </button>
+      <button type="button" role="tab" aria-selected="false" class="cat-btn" data-cat="arts" onclick="setCategory('arts')">
+        Arts &amp; Publishing <span class="cat-count" id="count-arts">0</span>
+      </button>
+      <button type="button" role="tab" aria-selected="false" class="cat-btn" data-cat="tutor" onclick="setCategory('tutor')">
+        Education &amp; Facilitation <span class="cat-count" id="count-tutor">0</span>
+      </button>
+      <button type="button" role="tab" aria-selected="false" class="cat-btn" data-cat="school" onclick="setCategory('school')">
+        West London Schools <span class="cat-count" id="count-school">0</span>
+      </button>
+      <button type="button" role="tab" aria-selected="false" class="cat-btn" data-cat="saved" onclick="setCategory('saved')">
+        ★ Shortlist <span class="cat-count" id="count-saved">0</span>
+      </button>
+    </div>
+
+    <div class="filter-inputs">
+      <input
+        type="search"
+        id="searchInput"
+        class="minimal-input"
+        placeholder="Filter venue, title, summary..."
+        aria-label="Filter by venue, role, summary, or postcode"
+        oninput="renderAll(false)"
+      >
+      <select id="distanceFilter" class="minimal-select" onchange="renderAll(true)" aria-label="Maximum distance from Imperial Wharf">
+        <option value="all">Distance: All London</option>
+        <option value="1.0">≤ 1.0 mile (Walkable SW6/SW10)</option>
+        <option value="2.0">≤ 2.0 miles (West London Hub)</option>
+        <option value="3.5">≤ 3.5 miles (West &amp; Central)</option>
+      </select>
+      <select id="sortSelect" class="minimal-select" onchange="handleSortChange()" aria-label="Sort opportunities">
+        <option value="distance">Sort: Closest to SW6</option>
+        <option value="salary">Sort: Highest Remuneration</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- 3. SPLIT WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT: CLEAN TABULAR LEDGER -->
+    <div tabindex="0" role="region" aria-labelledby="opportunities-table-caption" class="table-wrapper" id="tableWrapper">
+      <table>
+        <caption id="opportunities-table-caption" class="sr-only">London curatorial, museum, arts, workshop, and school targets with salaries, locations, and distances from Imperial Wharf SW6</caption>
+        <thead>
+          <tr>
+            <th scope="col">Role &amp; Employer (<span id="shownCount">0</span>)</th>
+            <th scope="col">Location</th>
+            <th scope="col" id="thDistance" class="sortable sorted" tabindex="0" aria-sort="ascending" onclick="setSort('distance')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setSort('distance');}" title="Sort by closest to Imperial Wharf">From SW6 ↑</th>
+            <th scope="col" id="thSalary" class="sortable" tabindex="0" aria-sort="none" onclick="setSort('salary')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();setSort('salary');}" title="Sort by highest salary">Remuneration ↕</th>
+            <th scope="col">Access</th>
+          </tr>
+        </thead>
+        <tbody id="ledgerBody"></tbody>
+      </table>
+    </div>
+
+    <!-- RIGHT: INTERACTIVE MAP + SELECTED ROLE SUMMARY -->
+    <section class="map-column" id="mapColumn" aria-label="Interactive Commute Map and Selected Role">
+      <div class="map-canvas-wrap">
+        <div class="map-overlay-bar">
+          <div class="map-badge" id="mapRouteBadge">Imperial Wharf (SW6 2ZH)</div>
+          <div class="map-actions">
+            <button type="button" class="map-tool-btn" onclick="fitActiveCategory()">Fit Visible</button>
+            <button type="button" class="map-tool-btn" onclick="resetMapView()">Reset Map</button>
+          </div>
+        </div>
+        <div id="london-map"></div>
+      </div>
+
+      <div class="focus-card" id="focusCard"></div>
+    </section>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  const IMPERIAL_WHARF = {"name": "Imperial Wharf (Home Base)", "postcode": "SW6 2ZH", "lat": 51.4752, "lng": -0.1831};
+  const JOBS = [{"id": "mus-01", "title": "Assistant Curator / Interpretation Producer", "org": "Victoria and Albert Museum (V&A South Kensington)", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a331,500 \u2013 \u00a335,500 / yr", "salary_sort": 33500, "area": "South Kensington", "borough": "Kensington & Chelsea", "postcode": "SW7 2RL", "lat": 51.4966, "lng": -0.1722, "transit": "16 min \u2014 328 bus to South Kensington or Overground to West Brompton + District Line (or 12 min cycle)", "apply_url": "https://www.vam.ac.uk/info/jobs", "summary": "Produce curriculum-aligned onsite and digital gallery interpretation for diverse audiences and schools (KS2\u2013KS5), collaborating with artists to interpret South Asia and decorative arts collections.", "why_fit": "Direct alignment with your 4+ years as Producer, Education Programs at Museums Victoria (Culture Makers & Threads) and your Punjabi and Hindi mother-tongue fluency, ideal for V&A South Asia collections.", "distance_miles": 1.55}, {"id": "mus-02", "title": "Curatorial Assistant / Public Programmes", "org": "The Design Museum", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a328,000 \u2013 \u00a333,000 / yr", "salary_sort": 30500, "area": "Kensington High Street", "borough": "Kensington & Chelsea", "postcode": "W8 6AG", "lat": 51.4998, "lng": -0.2005, "transit": "14 min \u2014 2 stops on Mildmay Overground to Kensington (Olympia) + 8 min walk", "apply_url": "https://designmuseum.org/about-the-museum/work-at-the-museum", "summary": "Assist on contemporary design exhibitions, creative residencies, and critical public talks exploring design, ecology, and social change in West London.", "why_fit": "Just 2 Overground stops from Imperial Wharf. Connects your curatorial development on Writing the West (Footscray) and Threads stop-motion digital production with contemporary design practice.", "distance_miles": 1.86}, {"id": "mus-03", "title": "Community Curator & Education Officer", "org": "Fulham Palace House & Garden", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a330,000 \u2013 \u00a334,000 / yr", "salary_sort": 32000, "area": "Fulham / Bishop's Park", "borough": "Hammersmith & Fulham", "postcode": "SW6 6EA", "lat": 51.4716, "lng": -0.2158, "transit": "15 min \u2014 424 bus along the Thames Path or 10 min cycle through Fulham", "apply_url": "https://www.fulhampalace.org/about-us/our-team/work-for-us/", "summary": "Curate inclusive community exhibitions, schools workshops, and decolonising local heritage strands at Fulham's premier historic palace and riverside gardens.", "why_fit": "Located in SW6. Your LSE History & IR degree, Past Wrongs Future Choices truth-telling research, and Fulham Cross Girls' School teaching give you unmatched local authority and community trust.", "distance_miles": 1.43}, {"id": "mus-04", "title": "Assistant Curator: British Art & Public Practice", "org": "Tate Britain", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a329,000 \u2013 \u00a333,500 / yr", "salary_sort": 31250, "area": "Millbank / Pimlico", "borough": "Westminster", "postcode": "SW1P 4RG", "lat": 51.4911, "lng": -0.1278, "transit": "24 min \u2014 Overground to Clapham Junction (1 stop, 7 min) + South Western Rail to Vauxhall + walk across Vauxhall Bridge (or 170 bus to Pimlico)", "apply_url": "https://www.tate.org.uk/about-us/working-at-tate", "summary": "Support curatorial research, artist commissions, and public programming engaging British and transnational diaspora art histories across Tate Britain's collections.", "why_fit": "Fast 2-leg commute via Clapham Junction. Connects your published critical writing (Sydney Review of Books, Liminal, Cordite) and Museums Victoria exhibitions with national collections.", "distance_miles": 2.62}, {"id": "mus-05", "title": "Curatorial & Civic Projects Producer", "org": "Serpentine Galleries", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a333,000 \u2013 \u00a337,000 / yr", "salary_sort": 35000, "area": "Kensington Gardens", "borough": "Kensington & Chelsea", "postcode": "W2 3XA", "lat": 51.5048, "lng": -0.175, "transit": "22 min \u2014 Overground to West Brompton + District Line to South Kensington + walk through Hyde Park", "apply_url": "https://www.serpentinegalleries.org/about/opportunities/", "summary": "Deliver artist commissions, civic assemblies, youth curatorial labs, and publication projects exploring ecology and social justice in Kensington Gardens.", "why_fit": "Serpentine Civic Projects explicitly pairs poets and artists with community groups\u2014identical to your Footscray Community Arts residencies (Flood Myth, Writing the West) and Culture Makers Lab.", "distance_miles": 2.07}, {"id": "mus-06", "title": "Collections & Learning Officer", "org": "Leighton House & Sambourne House (RBKC)", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a332,000 \u2013 \u00a336,500 / yr", "salary_sort": 34250, "area": "Holland Park, Kensington", "borough": "Kensington & Chelsea", "postcode": "W14 8LZ", "lat": 51.4986, "lng": -0.2035, "transit": "12 min \u2014 2 stops on Mildmay Overground to Kensington (Olympia) + 6 min walk", "apply_url": "https://www.rbkc.gov.uk/museums/about-us/work-us", "summary": "Manage schools workshops (KS1\u2013KS5), public talks, and contemporary diaspora artist commissions across Leighton House's newly transformed Arab Hall and galleries.", "why_fit": "Only 12 minutes door-to-door from Imperial Wharf. Leighton House's emphasis on Middle Eastern/South Asian decorative arts, intercultural dialogue, and West London schools fits your pedagogy perfectly.", "distance_miles": 1.84}, {"id": "mus-07", "title": "Assistant Curator & Exhibitions Coordinator", "org": "Whitechapel Gallery", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a327,000 \u2013 \u00a331,000 / yr", "salary_sort": 29000, "area": "Aldgate East", "borough": "Tower Hamlets", "postcode": "E1 7QX", "lat": 51.516, "lng": -0.07, "transit": "38 min \u2014 Overground to West Brompton + District Line direct to Aldgate East (30 min)", "apply_url": "https://www.whitechapelgallery.org/about/jobs/", "summary": "Support the senior curatorial team in exhibition research, artist loans, catalogue production, and installation for major modern and contemporary exhibitions.", "why_fit": "Whitechapel is London's premier non-profit gallery for groundbreaking curatorial practice. Bridges your curatorial work on Writing the West with your catalogue editorial pedigree.", "distance_miles": 5.62}, {"id": "mus-08", "title": "Curatorial Assistant: Commissions & Residencies", "org": "Chisenhale Gallery", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a327,000 \u2013 \u00a330,000 / yr", "salary_sort": 28500, "area": "Bow / Mile End", "borough": "Tower Hamlets", "postcode": "E3 5QZ", "lat": 51.534, "lng": -0.038, "transit": "44 min \u2014 Overground to West Brompton + District Line to Mile End + short walk along canal", "apply_url": "https://chisenhale.org.uk/about/jobs/", "summary": "Work closely with emerging and international artists to realize new commissions, artist publications, and public events in an agile contemporary gallery.", "why_fit": "Chisenhale commissions artists to make the most expansive work of their careers\u2014mirroring your bespoke creative development with artists on Threads and Culture Makers.", "distance_miles": 7.45}, {"id": "mus-09", "title": "Assistant Curator & Storytelling Producer", "org": "Migration Museum", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a329,000 \u2013 \u00a333,000 / yr", "salary_sort": 31000, "area": "Lewisham / City of London", "borough": "Lewisham", "postcode": "SE13 7HB", "lat": 51.4625, "lng": -0.0105, "transit": "36 min \u2014 Overground to Clapham Junction (1 stop, 7 min) + fast train to Lewisham (22 min)", "apply_url": "https://www.migrationmuseum.org/work-with-us/", "summary": "Develop oral history exhibitions, diaspora community co-curation projects, and learning resources exploring migration, identity, and belonging in Britain.", "why_fit": "100% thematic match. You co-curated the Identity exhibition at Melbourne's Immigration Museum, led Culture Makers, and presented on migrant storytelling at MuseumNext 2024.", "distance_miles": 7.48}, {"id": "mus-10", "title": "Exhibitions & Public Programmes Assistant", "org": "Camden Art Centre", "category": "museum", "category_label": "Curator & Museum", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a326,500 \u2013 \u00a329,500 / yr", "salary_sort": 28000, "area": "Hampstead / Finchley Road", "borough": "Camden", "postcode": "NW3 6DG", "lat": 51.5478, "lng": -0.183, "transit": "28 min \u2014 Mildmay Overground direct from Imperial Wharf to West Hampstead (5 stops, 20 min) + 7 min walk", "apply_url": "https://camdenartcentre.org/about/jobs/", "summary": "Support exhibitions, ceramics/artist residencies, and youth studio courses in an artist-led contemporary arts space in North-West London.", "why_fit": "Direct single-train Overground journey north from Imperial Wharf to West Hampstead. Bridges your artist-in-residence experience with gallery-based public programming.", "distance_miles": 5.02}, {"id": "art-01", "title": "Creative Learning Producer (Young Lyric)", "org": "Lyric Hammersmith Theatre", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a332,000 \u2013 \u00a336,000 / yr", "salary_sort": 34000, "area": "Hammersmith", "borough": "Hammersmith & Fulham", "postcode": "W6 0QL", "lat": 51.4932, "lng": -0.2266, "transit": "16 min \u2014 Overground to West Brompton (1 stop) + District Line to Hammersmith (3 stops)", "apply_url": "https://lyric.co.uk/about-us/work-with-us/", "summary": "Produce young people's creative learning programmes, West London school partnerships, and Young Writers residencies for underrepresented youth in Hammersmith.", "why_fit": "Located in Hammersmith & Fulham (where you taught at Fulham Cross). You were selected for Malthouse Theatre's Emerging Writers Group and led youth creative writing labs across Melbourne.", "distance_miles": 2.25}, {"id": "art-02", "title": "Community Producer & Literary Associate", "org": "Bush Theatre", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a330,000 \u2013 \u00a334,500 / yr", "salary_sort": 32250, "area": "Shepherd's Bush", "borough": "Hammersmith & Fulham", "postcode": "W12 8LJ", "lat": 51.5042, "lng": -0.2268, "transit": "16 min \u2014 3 stops on Mildmay Overground to Shepherd's Bush + 4 min walk", "apply_url": "https://www.bushtheatre.co.uk/about-us/vacancies/", "summary": "Produce neighbourhood community commissions, young writers labs, and script reading schemes championing diverse, working-class, and diaspora voices.", "why_fit": "3 Overground stops from Imperial Wharf. Your dual identity as published writer and producer for underrepresented communities makes you a standout for Bush Theatre's mission.", "distance_miles": 2.75}, {"id": "art-03", "title": "Literature & Spoken Word Producer", "org": "Southbank Centre (National Poetry Library)", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a334,000 \u2013 \u00a339,000 / yr", "salary_sort": 36500, "area": "South Bank / Waterloo", "borough": "Lambeth", "postcode": "SE1 8XX", "lat": 51.5065, "lng": -0.1165, "transit": "20 min \u2014 Overground to Clapham Junction (1 stop, 7 min) + fast South Western train to Waterloo (8 min) + 5 min walk", "apply_url": "https://careers.southbankcentre.co.uk/", "summary": "Curate readings, festivals (London Literature Festival, Poetry International), and digital spoken-word commissions at Europe's largest cultural centre and National Poetry Library.", "why_fit": "Fast 20-min commute via Waterloo. Directly leverages your UEA MA in Creative Writing (Poetry), Sydney Review of Books criticism, and Culture Makers festival programming.", "distance_miles": 3.59}, {"id": "art-04", "title": "Schools & Outreach Manager", "org": "Royal Society of Literature (RSL)", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a333,000 \u2013 \u00a337,000 / yr", "salary_sort": 35000, "area": "Somerset House, Strand", "borough": "Westminster", "postcode": "WC2R 1LA", "lat": 51.5111, "lng": -0.1171, "transit": "26 min \u2014 Overground to West Brompton + District Line to Temple + 4 min walk", "apply_url": "https://rsliterature.org/about-us/vacancies/", "summary": "Direct RSL's national literature outreach programmes for young people and state schools, placing distinguished fellows and poets into schools to inspire young writers.", "why_fit": "Direct continuation of your Head of Projects role at Future First (London, 52 schools) and Culture Makers partnership work with the Scanlon Foundation.", "distance_miles": 3.77}, {"id": "art-05", "title": "Education & Projects Officer", "org": "The Poetry Society", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a328,000 \u2013 \u00a332,000 / yr", "salary_sort": 30000, "area": "Covent Garden", "borough": "Camden", "postcode": "WC2H 9BX", "lat": 51.5135, "lng": -0.1245, "transit": "28 min \u2014 Overground to West Brompton + District Line to South Kensington + Piccadilly Line to Covent Garden", "apply_url": "https://poetrysociety.org.uk/about/jobs/", "summary": "Coordinate the Foyle Young Poets of the Year Award, school poet visits, and publish education resources supporting poetry teaching nationwide.", "why_fit": "The Poetry Society runs the UK's top youth poetry competitions and school residencies. Perfectly synthesises your secondary English teaching mastery with published poetry practice.", "distance_miles": 3.65}, {"id": "art-06", "title": "Editorial & Production Manager", "org": "Wasafiri Magazine of International Contemporary Writing", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a331,000 \u2013 \u00a335,000 / yr", "salary_sort": 33000, "area": "Mile End (Queen Mary University)", "borough": "Tower Hamlets", "postcode": "E1 4NS", "lat": 51.524, "lng": -0.04, "transit": "40 min \u2014 Overground to West Brompton + District Line direct to Mile End (32 min)", "apply_url": "https://www.wasafiri.org/about/work-with-us/", "summary": "Oversee print and digital issue production, commissioning, and international diaspora literary events for Britain's premier magazine of international contemporary writing.", "why_fit": "Wasafiri's focus on postcolonial, diasporic, and intercultural writing aligns directly with your LSE History degree, Liminal essays, and Culture Makers publication editing.", "distance_miles": 7.02}, {"id": "art-07", "title": "Participation Producer (Young Agitators)", "org": "Royal Court Theatre", "category": "arts", "category_label": "Arts & Publishing", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a331,000 \u2013 \u00a335,000 / yr", "salary_sort": 33000, "area": "Sloane Square, Chelsea", "borough": "Kensington & Chelsea", "postcode": "SW1W 8AS", "lat": 51.4925, "lng": -0.1565, "transit": "14 min \u2014 Overground to West Brompton + District Line to Sloane Square (4 stops, 8 min)", "apply_url": "https://royalcourttheatre.com/about/jobs/", "summary": "Produce young writers groups, schools theatre projects, and radical civic engagement programmes in Chelsea and across London.", "why_fit": "Only 14 minutes from Imperial Wharf via District Line. Merges your critical theatre writing (Malthouse Emerging Writers) with state school youth empowerment.", "distance_miles": 1.65}, {"id": "art-08", "title": "Guest Curator & Exhibition Text Writer", "org": "Gallery 44", "category": "arts", "category_label": "Arts & Publishing", "contract": "Exhibition Commission \u00b7 \u00a33,500 \u2013 \u00a35,500 per project", "salary_display": "\u00a33,500 \u2013 \u00a35,500 / project (\u00a340k equiv.)", "salary_sort": 40000, "area": "Kensington / Fulham", "borough": "Kensington & Chelsea", "postcode": "W8 6EH", "lat": 51.5005, "lng": -0.1985, "transit": "24 min \u2014 Overground to Kensington (Olympia) (2 stops) + 10 min walk", "apply_url": "https://gurmeetkaur.netlify.app/curation.html", "summary": "Curate contemporary visual arts presentations and author exhibition essays, wall texts, and artist publications for independent project spaces in West London.", "why_fit": "Specifically identified in your professional portfolio development as your premier independent curatorial and catalogue text project.", "distance_miles": 1.87}, {"id": "tut-01", "title": "Writer-in-Residence (London Secondary Schools)", "org": "First Story", "category": "tutor", "category_label": "Education & Facilitation", "contract": "Residency Contract \u00b7 \u00a3250\u2013\u00a3300 / day", "salary_display": "\u00a3250 \u2013 \u00a3300 / day (\u00a336k FTE)", "salary_sort": 36000, "area": "West London Partner Schools", "borough": "Hammersmith & Fulham / Westminster", "postcode": "WC1N 3AX", "lat": 51.5225, "lng": -0.1205, "transit": "12\u201325 min \u2014 Placed directly into West London partner secondary schools", "apply_url": "https://firststory.org.uk/about-us/jobs/", "summary": "Lead intensive creative writing residencies in non-selective state secondary schools, culminating in student anthologies edited by you and published professionally.", "why_fit": "First Story places published writers with classroom mastery into state schools. Perfect fit for your Teach First London background, published poetry, and Culture Makers editing.", "distance_miles": 4.23}, {"id": "tut-02", "title": "Primary Literacy & Learning Specialist", "org": "Centre for Literacy in Primary Education (CLPE)", "category": "tutor", "category_label": "Education & Facilitation", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a336,000 \u2013 \u00a342,000 / yr", "salary_sort": 39000, "area": "Waterloo / Southwark", "borough": "Southwark", "postcode": "SE1 7RD", "lat": 51.5005, "lng": -0.1105, "transit": "22 min \u2014 Overground to Clapham Junction + South Western Rail to Waterloo + 6 min walk", "apply_url": "https://clpe.org.uk/about-us/vacancies", "summary": "Design national primary reading and poetry curricula (Power of Reading, CLiPPA Poetry Award) and deliver professional training for teachers across the UK.", "why_fit": "CLPE runs the UK's premier children's poetry award and primary literacy research. Merges your primary teacher training (Teach for Bangladesh), poetry pedigree, and primary curriculum design.", "distance_miles": 3.58}, {"id": "tut-03", "title": "Creative Learning & Youth Access Producer", "org": "A New Direction", "category": "tutor", "category_label": "Education & Facilitation", "contract": "Full-Time \u00b7 Permanent", "salary_display": "\u00a333,000 \u2013 \u00a337,500 / yr", "salary_sort": 35250, "area": "London Bridge / Bermondsey", "borough": "Southwark", "postcode": "SE1 2BD", "lat": 51.504, "lng": -0.088, "transit": "32 min \u2014 Overground to Clapham Junction + train to London Bridge + 5 min walk", "apply_url": "https://www.anewdirection.org.uk/about/jobs", "summary": "Lead partnership programmes between London schools, cultural institutions, and underrepresented young creatives across Greater London.", "why_fit": "Direct continuation of your Head of Projects role at Future First (London, 52 schools) and Culture Makers partnership work with the Scanlon Foundation.", "distance_miles": 4.55}, {"id": "tut-04", "title": "Artist-Educator: Design & Narrative Workshops", "org": "Young V&A", "category": "tutor", "category_label": "Education & Facilitation", "contract": "Workshop Facilitator Pool \u00b7 \u00a3250\u2013\u00a3320 / day", "salary_display": "\u00a3250 \u2013 \u00a3320 / day", "salary_sort": 38000, "area": "Bethnal Green", "borough": "Tower Hamlets", "postcode": "E2 9PA", "lat": 51.5292, "lng": -0.0558, "transit": "40 min \u2014 Overground to West Brompton + District Line to Whitechapel + Overground to Bethnal Green", "apply_url": "https://www.vam.ac.uk/info/jobs", "summary": "Deliver hands-on creative storytelling, zine-making, stop-motion animation, and design workshops for primary and early secondary schools at the newly reopened Young V&A.", "why_fit": "Directly applies your stop-motion narrative workshops from Threads and children's writing workshops from 100 Story Building.", "distance_miles": 6.63}, {"id": "tut-05", "title": "Freelance Museum Educator (Ekphrastic Writing & History)", "org": "The Wallace Collection", "category": "tutor", "category_label": "Education & Facilitation", "contract": "Freelance Educator Pool \u00b7 \u00a3240\u2013\u00a3300 / day", "salary_display": "\u00a3240 \u2013 \u00a3300 / day (\u00a345\u2013\u00a360 / hr)", "salary_sort": 37000, "area": "Manchester Square, Marylebone", "borough": "Westminster", "postcode": "W1U 3BN", "lat": 51.5175, "lng": -0.153, "transit": "26 min \u2014 Overground to West Brompton + District Line to Victoria + Victoria Line to Oxford Circus + 8 min walk", "apply_url": "https://www.wallacecollection.org/about-us/jobs/", "summary": "Facilitate object-based creative writing, European & Asian decorative arts enquiry, and history workshops for visiting school groups and youth weekend sessions.", "why_fit": "Combines your museum educator pedigree at Museums Victoria with your ekphrastic poetry practice (Flood Myth).", "distance_miles": 3.2}, {"id": "tut-06", "title": "Specialist English, 11+ & Humanities Private Tutor", "org": "Keystone Tutors (West London Network)", "category": "tutor", "category_label": "Education & Facilitation", "contract": "Flexible Private Tuition \u00b7 \u00a365\u2013\u00a395 / hr", "salary_display": "\u00a365 \u2013 \u00a395 / hr (\u00a345k\u2013\u00a368k FTE)", "salary_sort": 55000, "area": "Kensington / Fulham / Chelsea", "borough": "Kensington & Chelsea / Hammersmith & Fulham", "postcode": "W6 7BS", "lat": 51.4965, "lng": -0.2185, "transit": "12 min \u2014 2 stops on Mildmay Overground to Kensington (Olympia) or short walk across Sands End", "apply_url": "https://www.keystonetutors.com/become-a-tutor", "summary": "1-on-1 private academic tutoring in 11+ Entrance, GCSE/A-Level English Literature and Language, and Creative Writing for families across Chelsea, Fulham, and South Kensington.", "why_fit": "Based in Imperial Wharf (SW6). Your LSE degree, PGCE with Distinction, and senior English teaching experience at top Melbourne independent grammar schools (Kilvington, Caulfield) command top-bracket rates.", "distance_miles": 2.12}, {"id": "sch-01", "title": "Teacher of English & Cultural Enrichment Lead", "org": "Chelsea Academy", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Inner London MPS/UPS", "salary_display": "\u00a347,961 \u2013 \u00a364,684 / yr (+ TLR)", "salary_sort": 51000, "area": "Lots Road, Chelsea", "borough": "Kensington & Chelsea", "postcode": "SW10 0AB", "lat": 51.4782, "lng": -0.1812, "transit": "4 min walk \u2014 0.22 mi across Lots Road directly opposite Imperial Wharf", "apply_url": "https://chelsea-academy.org/vacancies/", "summary": "Teach KS3\u2013KS5 English Literature & Language and lead co-curricular debating, creative writing, and museum cultural partnerships at an Ofsted Outstanding academy right on your doorstep.", "why_fit": "Zero commute (4 minutes' walk). Matches your PGCE with Distinction, and UEA and lyrical background and museum leadership on your home street.", "distance_miles": 0.22}, {"id": "sch-02", "title": "Teacher of English / Curriculum Lead", "org": "Fulham Cross Girls' School & Sixth Form", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Inner London MPS/UPS", "salary_display": "\u00a347,961 \u2013 \u00a364,684 / yr (+ TLR2)", "salary_sort": 51000, "area": "Munster Road, Fulham", "borough": "Hammersmith & Fulham", "postcode": "SW6 6BP", "lat": 51.4779, "lng": -0.2112, "transit": "12 min \u2014 1.2 mi via Munster Road (or 6 min cycle)", "apply_url": "https://www.fulhamcross.net/vacancies", "summary": "Lead curriculum innovation in KS3\u2013KS4 English and coordinate whole-school diversity, anti-racist pedagogy, and creative writing initiatives.", "why_fit": "You taught here in 2019, where you won the Global Girls' Fellowship and designed the school's inaugural Black History Month program. Known and deeply respected leadership.", "distance_miles": 1.22}, {"id": "sch-03", "title": "Upper Primary Literacy & Humanities Specialist", "org": "Thomas's Fulham Prep School", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Competitive Independent Scale", "salary_display": "\u00a342,000 \u2013 \u00a356,000 / yr", "salary_sort": 48000, "area": "Hugon Road, Sands End", "borough": "Hammersmith & Fulham", "postcode": "SW6 3ES", "lat": 51.4682, "lng": -0.1885, "transit": "8 min walk \u2014 0.58 mi south down Hugon Road in Sands End", "apply_url": "https://www.thomas-s.co.uk/join-our-team/", "summary": "Teach Year 4 to Year 6 English, Creative Writing, and History at one of London's most prestigious independent preparatory schools.", "why_fit": "8-minute walk from Imperial Wharf in Sands End. Combines your primary pedagogy from Teach for Bangladesh with your master's level English and poetry training.", "distance_miles": 0.54}, {"id": "sch-04", "title": "Primary Literacy & Humanities Lead (KS2)", "org": "Fulham Primary School", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Inner London MPS/UPS", "salary_display": "\u00a345,787 \u2013 \u00a354,131 / yr", "salary_sort": 49000, "area": "Halford Road, Fulham", "borough": "Hammersmith & Fulham", "postcode": "SW6 1JU", "lat": 51.4828, "lng": -0.1995, "transit": "14 min walk \u2014 0.85 mi via North End Road (or 5 min cycle)", "apply_url": "https://www.fulhamprimaryschool.org.uk/vacancies/", "summary": "Lead Key Stage 2 literacy, reading comprehension, and creative humanities across a vibrant community primary school in Fulham.", "why_fit": "14-minute walk from Imperial Wharf. Bridges your primary teacher training expertise with inclusive literacy curriculum design.", "distance_miles": 0.88}, {"id": "sch-05", "title": "Teacher of English & Humanities (Secondary)", "org": "The Hurlingham Academy", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Inner London Scale (United Learning)", "salary_display": "\u00a345,787 \u2013 \u00a364,684 / yr", "salary_sort": 50000, "area": "Peterborough Road, Fulham", "borough": "Hammersmith & Fulham", "postcode": "SW6 3ED", "lat": 51.4695, "lng": -0.1972, "transit": "10 min walk \u2014 0.73 mi through South Park / Sands End", "apply_url": "https://www.thehurlinghamacademy.org.uk/vacancies", "summary": "Deliver English Literature and Humanities lessons at a rapidly improving secondary school just 10 minutes' walk from Imperial Wharf.", "why_fit": "10-minute walk from Imperial Wharf. Your dual qualification in Secondary English (Distinction) and History/IR (LSE) makes you valuable across both faculties.", "distance_miles": 0.72}, {"id": "sch-06", "title": "Teacher of English & Humanities (Secondary Girls)", "org": "Lady Margaret School, Parsons Green", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Inner London MPS/UPS", "salary_display": "\u00a345,787 \u2013 \u00a364,684 / yr", "salary_sort": 50000, "area": "Parsons Green, Fulham", "borough": "Hammersmith & Fulham", "postcode": "SW6 4UN", "lat": 51.4748, "lng": -0.2012, "transit": "12 min walk \u2014 0.78 mi across Eel Brook Common (or 4 min cycle)", "apply_url": "https://www.ladymargaret.lbhf.sch.uk/vacancies/", "summary": "Teach KS3\u2013KS5 English Literature and History at one of London's highest-achieving Church of England girls' academies, situated on Parsons Green.", "why_fit": "12 minutes' walk across Eel Brook Common. Combines your commitment to girls' academic empowerment (Global Girls' Fellowship) with senior English Literature teaching.", "distance_miles": 0.78}, {"id": "sch-07", "title": "Teacher of English & Creative Writing", "org": "Latymer Upper School & Latymer Prep", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Latymer Independent Scale", "salary_display": "\u00a348,000 \u2013 \u00a366,000 / yr", "salary_sort": 53000, "area": "King Street, Hammersmith", "borough": "Hammersmith & Fulham", "postcode": "W6 9LR", "lat": 51.4925, "lng": -0.2361, "transit": "18 min \u2014 Overground to West Brompton + District Line to Ravenscourt Park / Hammersmith", "apply_url": "https://www.latymer-upper.org/about-us/vacancies/", "summary": "Teach English and Creative Writing across Upper School and/or Prep (Years 3\u201313) and contribute to Latymer's acclaimed bursary outreach and partnerships.", "why_fit": "Leading co-ed West London independent school with a strong social-mobility focus. Matches your teaching pedigree at top Melbourne independent grammar schools (Kilvington, Caulfield).", "distance_miles": 2.57}, {"id": "sch-08", "title": "English Teacher & Primary Outreach Coordinator", "org": "Godolphin and Latymer School", "category": "school", "category_label": "West London Schools", "contract": "Full-Time \u00b7 Independent Inner London Scale", "salary_display": "\u00a347,500 \u2013 \u00a364,000 / yr", "salary_sort": 52000, "area": "Iffley Road, Hammersmith", "borough": "Hammersmith & Fulham", "postcode": "W6 0ND", "lat": 51.4956, "lng": -0.2286, "transit": "16 min \u2014 Overground to West Brompton + District Line to Hammersmith (3 stops)", "apply_url": "https://www.godolphinandlatymer.com/vacancies/", "summary": "Teach academic English Literature and coordinate the Bridge Programme partnering with local state primary schools across Hammersmith & Fulham.", "why_fit": "Bridges senior independent school English teaching with community and primary school outreach across West London.", "distance_miles": 2.41}];
+
+  let activeCategory = 'all';
+  let selectedJobId = null;
+  let savedJobIds = new Set();
+
+  let map = null;
+  let markersLayer = null;
+  let routeLayer = null;
+  let baseLayer = null;
+
+  function loadSavedStatus() {
+    try {
+      const raw = localStorage.getItem('gurmeet_saved_targets_v2');
+      if (raw) {
+        const arr = JSON.parse(raw);
+        savedJobIds = new Set(arr);
+      }
+    } catch (e) {}
+  }
+
+  function toggleSaveJob(id, e) {
+    if (e) e.stopPropagation();
+    if (savedJobIds.has(id)) {
+      savedJobIds.delete(id);
+    } else {
+      savedJobIds.add(id);
+    }
+    try {
+      localStorage.setItem('gurmeet_saved_targets_v2', JSON.stringify(Array.from(savedJobIds)));
+    } catch (e) {}
+    renderAll(false);
+  }
+
+  function initMap() {
+    map = L.map('london-map', {
+      zoomControl: true,
+      scrollWheelZoom: true
+    }).setView([51.492, -0.178], 12);
+
+    // Esri World Light Gray Base: Clean neutral architectural styling, zero watermark, zero 403 blocks
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+      maxZoom: 16
+    }).addTo(map);
+
+    baseLayer = L.layerGroup().addTo(map);
+    routeLayer = L.layerGroup().addTo(map);
+    markersLayer = L.layerGroup().addTo(map);
+
+    // 2-mile West London radius ring around Imperial Wharf
+    L.circle([IMPERIAL_WHARF.lat, IMPERIAL_WHARF.lng], {
+      radius: 3218,
+      color: '#9e2a2b',
+      weight: 1,
+      dashArray: '4, 6',
+      fillColor: '#9e2a2b',
+      fillOpacity: 0.03
+    }).bindTooltip('2.0 miles from Imperial Wharf SW6', { sticky: true }).addTo(baseLayer);
+
+    // Compact concentric home pin
+    const homeIcon = L.divIcon({
+      className: 'sw6-home-pin',
+      html: `<div style="width:16px;height:16px;border-radius:50%;background:#9e2a2b;border:2.5px solid #ffffff;box-shadow:0 0 0 1.5px #9e2a2b, 0 2px 6px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;">
+        <span style="width:4px;height:4px;border-radius:50%;background:#ffffff;display:block;"></span>
+      </div>`,
+      iconSize: [16, 16],
+      iconAnchor: [8, 8]
+    });
+
+    L.marker([IMPERIAL_WHARF.lat, IMPERIAL_WHARF.lng], { icon: homeIcon, zIndexOffset: 700 })
+      .bindTooltip('<strong>Imperial Wharf (SW6 2ZH)</strong> &middot; Home Base', { direction: 'bottom', offset: [0, 8] })
+      .bindPopup('<strong>Imperial Wharf (SW6 2ZH)</strong><br>Home Base · Fulham / Chelsea Harbour')
+      .addTo(baseLayer);
+  }
+
+  function resetMapView() {
+    if (!map) return;
+    map.setView([51.492, -0.178], 12);
+  }
+
+  function fitActiveCategory() {
+    if (!map) return;
+    const filtered = getFilteredJobs();
+    if (!filtered.length) return;
+    const pts = filtered.map(j => [j.lat, j.lng]);
+    pts.push([IMPERIAL_WHARF.lat, IMPERIAL_WHARF.lng]);
+    const bounds = L.latLngBounds(pts);
+    map.fitBounds(bounds.pad(0.18), { maxZoom: 14, animate: true });
+  }
+
+  function setCategory(cat) {
+    activeCategory = cat;
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      const isMatch = btn.dataset.cat === cat;
+      btn.classList.toggle('active', isMatch);
+      btn.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+    });
+    const wrapper = document.getElementById('tableWrapper');
+    if (wrapper) wrapper.scrollTop = 0;
+    renderAll(true, true);
+  }
+
+  function setSort(mode) {
+    const sel = document.getElementById('sortSelect');
+    if (sel.value === mode) return;
+    sel.value = mode;
+    handleSortChange();
+  }
+
+  function handleSortChange() {
+    const mode = document.getElementById('sortSelect').value;
+    const thDist = document.getElementById('thDistance');
+    const thSal = document.getElementById('thSalary');
+    if (mode === 'salary') {
+      thDist.classList.remove('sorted');
+      thDist.setAttribute('aria-sort', 'none');
+      thDist.textContent = 'From SW6 ↕';
+      thSal.classList.add('sorted');
+      thSal.setAttribute('aria-sort', 'descending');
+      thSal.textContent = 'Remuneration ↓';
+    } else {
+      thSal.classList.remove('sorted');
+      thSal.setAttribute('aria-sort', 'none');
+      thSal.textContent = 'Remuneration ↕';
+      thDist.classList.add('sorted');
+      thDist.setAttribute('aria-sort', 'ascending');
+      thDist.textContent = 'From SW6 ↑';
+    }
+    renderAll(false);
+  }
+
+  function getFilteredJobs() {
+    const q = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+    const maxDist = document.getElementById('distanceFilter').value;
+    const sortBy = document.getElementById('sortSelect').value;
+
+    const baseMatched = JOBS.filter(j => {
+      if (maxDist !== 'all' && j.distance_miles > parseFloat(maxDist)) return false;
+      if (q) {
+        const hay = `${j.title} ${j.org} ${j.area} ${j.postcode} ${j.summary} ${j.category_label} ${j.transit} ${j.contract} ${j.salary_display}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+
+    document.getElementById('count-all').textContent = baseMatched.length;
+    document.getElementById('count-museum').textContent = baseMatched.filter(j => j.category === 'museum').length;
+    document.getElementById('count-arts').textContent = baseMatched.filter(j => j.category === 'arts').length;
+    document.getElementById('count-tutor').textContent = baseMatched.filter(j => j.category === 'tutor').length;
+    document.getElementById('count-school').textContent = baseMatched.filter(j => j.category === 'school').length;
+    document.getElementById('count-saved').textContent = baseMatched.filter(j => savedJobIds.has(j.id)).length;
+
+    let list = baseMatched.filter(j => {
+      if (activeCategory === 'saved') return savedJobIds.has(j.id);
+      if (activeCategory !== 'all' && j.category !== activeCategory) return false;
+      return true;
+    });
+
+    list.sort((a, b) => {
+      if (sortBy === 'salary') return (b.salary_sort || 0) - (a.salary_sort || 0);
+      return a.distance_miles - b.distance_miles;
+    });
+
+    return list;
+  }
+
+  function selectJob(id, flyMap = true, keepFocusElement = null) {
+    selectedJobId = id;
+    renderAll(flyMap, false, keepFocusElement);
+  }
+
+  function renderAll(flyMap = false, fitAllCategory = false, focusedElementId = null) {
+    const filtered = getFilteredJobs();
+    document.getElementById('shownCount').textContent = filtered.length;
+
+    if (!selectedJobId || !filtered.some(j => j.id === selectedJobId)) {
+      selectedJobId = filtered.length ? filtered[0].id : null;
+    }
+
+    renderTable(filtered, focusedElementId);
+    renderMap(filtered, flyMap, fitAllCategory);
+    renderFocusCard(filtered.find(j => j.id === selectedJobId) || null);
+
+    if (map) {
+      setTimeout(() => map.invalidateSize(), 50);
+    }
+  }
+
+  function renderTable(filtered, focusedElementId) {
+    const tbody = document.getElementById('ledgerBody');
+    if (!filtered.length) {
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="5" style="padding:48px 20px; text-align:center; color:var(--mute);">
+            No employers or opportunities match the current filter.
+            <button type="button" onclick="resetFilters()" style="margin-left:8px; text-decoration:underline; color:var(--ink); cursor:pointer;">Reset filters</button>
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    tbody.innerHTML = filtered.map(j => {
+      const isSelected = j.id === selectedJobId;
+      const isSaved = savedJobIds.has(j.id);
+      const shortTime = j.transit.split('—')[0].trim();
+      return `
+        <tr id="row-${j.id}" data-job-id="${j.id}" class="${isSelected ? 'active' : ''}" onclick="selectJob('${j.id}', true, 'row-${j.id}')" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectJob('${j.id}', true, 'row-${j.id}');}">
+          <th scope="row">
+            <div class="row-org-line">
+              <span class="save-toggle ${isSaved ? 'saved' : ''}" onclick="toggleSaveJob('${j.id}', event)" title="${isSaved ? 'Remove from shortlist' : 'Save to shortlist'}">${isSaved ? '★' : '☆'}</span>
+              <span class="row-org">${escapeHtml(j.org)}</span>
+            </div>
+            <span class="row-title">${escapeHtml(j.title)}</span>
+          </th>
+          <td class="cell-loc">
+            <div class="cell-val">
+              ${escapeHtml(j.area)}
+              <span class="cell-postcode">${escapeHtml(j.postcode)}</span>
+            </div>
+          </td>
+          <td class="cell-dist">
+            <div class="cell-val">
+              <span class="dist-miles">${j.distance_miles} mi</span>
+              <span class="dist-time">${escapeHtml(shortTime)}</span>
+            </div>
+          </td>
+          <td class="cell-salary">
+            <div class="cell-val">
+              ${escapeHtml(j.salary_display)}
+              <span class="cell-contract">${escapeHtml(j.contract)}</span>
+            </div>
+          </td>
+          <td class="cell-action">
+            <div class="cell-val">
+              <a class="apply-link" href="${escapeHtml(j.apply_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Portal ↗</a>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    if (focusedElementId) {
+      const el = document.getElementById(focusedElementId);
+      if (el) el.focus();
+    }
+  }
+
+  function renderMap(filtered, flyMap, fitAllCategory) {
+    if (!map || !markersLayer) return;
+    markersLayer.clearLayers();
+    routeLayer.clearLayers();
+
+    filtered.forEach(j => {
+      const isSelected = j.id === selectedJobId;
+      const size = isSelected ? 15 : 9;
+      const bg = isSelected ? '#141413' : '#78756e';
+      const border = isSelected ? '2.5px solid #ffffff' : '1.5px solid #ffffff';
+      const ring = isSelected ? '0 0 0 2px #141413, 0 3px 8px rgba(0,0,0,0.3)' : '0 1px 3px rgba(0,0,0,0.2)';
+
+      const icon = L.divIcon({
+        className: 'venue-pin',
+        html: `<div style="width:${size}px;height:${size}px;border-radius:50%;background:${bg};border:${border};box-shadow:${ring};transition:all 0.15s ease;"></div>`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2]
+      });
+
+      const m = L.marker([j.lat, j.lng], {
+        icon,
+        zIndexOffset: isSelected ? 1000 : 100
+      }).addTo(markersLayer);
+
+      m.bindTooltip(`<strong>${escapeHtml(j.org)}</strong><br>${escapeHtml(j.salary_display)} &middot; ${j.distance_miles} mi from SW6`);
+      m.on('click', () => selectJob(j.id, true, `row-${j.id}`));
+    });
+
+    const active = filtered.find(j => j.id === selectedJobId);
+    if (active) {
+      const coords = [
+        [IMPERIAL_WHARF.lat, IMPERIAL_WHARF.lng],
+        [active.lat, active.lng]
+      ];
+      L.polyline(coords, {
+        color: '#9e2a2b',
+        weight: 1.8,
+        dashArray: '5, 5',
+        opacity: 0.85
+      }).addTo(routeLayer);
+
+      const shortTime = active.transit.split('—')[0].trim();
+      document.getElementById('mapRouteBadge').innerHTML = `<strong>Imperial Wharf SW6</strong> &rarr; <strong>${escapeHtml(active.org)}</strong> &middot; ${active.distance_miles} mi (${escapeHtml(shortTime)})`;
+
+      if (fitAllCategory) {
+        fitActiveCategory();
+      } else if (flyMap) {
+        const bounds = L.latLngBounds(coords);
+        map.fitBounds(bounds.pad(0.35), { maxZoom: 15, animate: true });
+      }
+    } else {
+      document.getElementById('mapRouteBadge').textContent = 'Imperial Wharf (SW6 2ZH)';
+      if (fitAllCategory) {
+        fitActiveCategory();
+      }
+    }
+  }
+
+  function renderFocusCard(job) {
+    const card = document.getElementById('focusCard');
+    if (!job) {
+      card.innerHTML = `<div style="color:var(--mute); font-size:0.85rem;">Select any target from the ledger to inspect its door-to-door transit route from Imperial Wharf and view verified careers portals.</div>`;
+      return;
+    }
+
+    const isSaved = savedJobIds.has(job.id);
+    const gmapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent('Imperial Wharf Station, London SW6 2ZH')}&destination=${encodeURIComponent(job.org + ', ' + job.postcode + ', London')}&travelmode=transit`;
+
+    card.innerHTML = `
+      <div class="focus-top">
+        <div>
+          <div class="focus-kicker">${escapeHtml(job.category_label)} &middot; ${escapeHtml(job.org)} &middot; ${escapeHtml(job.area)}, ${escapeHtml(job.postcode)}</div>
+          <h2 class="focus-title">${escapeHtml(job.title)}</h2>
+        </div>
+        <div class="focus-salary">${escapeHtml(job.salary_display)}</div>
+      </div>
+
+      <div class="focus-route">
+        <strong>${job.distance_miles} miles from Imperial Wharf:</strong> ${escapeHtml(job.transit)}
+      </div>
+
+      <p class="focus-summary">${escapeHtml(job.summary)}</p>
+
+      <div class="focus-fit">
+        <strong>Why Gurmeet Fits:</strong> ${escapeHtml(job.why_fit)}
+      </div>
+
+      <div class="focus-actions">
+        <a class="btn-primary" href="${escapeHtml(job.apply_url)}" target="_blank" rel="noopener">Open Careers Portal ↗</a>
+        <a class="btn-secondary" href="${gmapsUrl}" target="_blank" rel="noopener">Google Maps Transit ↗</a>
+        <button type="button" class="btn-secondary" onclick="toggleSaveJob('${job.id}')">${isSaved ? '★ Shortlisted' : '☆ Add to Shortlist'}</button>
+      </div>
+    `;
+  }
+
+  function resetFilters() {
+    activeCategory = 'all';
+    document.getElementById('searchInput').value = '';
+    document.getElementById('distanceFilter').value = 'all';
+    document.getElementById('sortSelect').value = 'distance';
+    handleSortChange();
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      const isAll = btn.dataset.cat === 'all';
+      btn.classList.toggle('active', isAll);
+      btn.setAttribute('aria-selected', isAll ? 'true' : 'false');
+    });
+    renderAll(true, true);
+  }
+
+  function escapeHtml(str) {
+    return String(str ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadSavedStatus();
+    initMap();
+    renderAll(false);
+  });
+</script>
+</body>
+</html>
