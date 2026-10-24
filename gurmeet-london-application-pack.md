@@ -730,7 +730,7 @@ Gurmeet Kaur
 - **Remuneration**: £34,000 – £39,000 / yr (Full-Time · Permanent)
 - **Location**: South Bank / Waterloo, SE1 8XX (3.59 mi from SW6)
 - **Commute**: 20 min — Overground to Clapham Junction (1 stop, 7 min) + South Western train to Waterloo (8 min) + 5 min walk
-- **Careers Portal**: [https://southbankcentre.co.uk/pages/work-with-us](https://southbankcentre.co.uk/pages/work-with-us)
+- **Careers Portal**: [https://www.southbankcentre.co.uk/careers/](https://www.southbankcentre.co.uk/careers/)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `recruitment@southbankcentre.co.uk`  
