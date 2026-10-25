@@ -74,7 +74,7 @@ class TestTier4Scenarios(unittest.TestCase):
 
     def test_candidate_workflow_search_filtering(self):
         """Tier 4.3: Simulate candidate searching for keywords across job title, org, summary, area."""
-        queries = ["Curator", "English", "Learning", "Producer", "London"]
+        queries = ["Curator", "English", "Learning", "Producer", "London", "Policy", "LSE", "Gallery 44"]
 
         for q in queries:
             q_lower = q.lower()

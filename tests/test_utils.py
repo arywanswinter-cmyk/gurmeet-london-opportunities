@@ -36,8 +36,10 @@ EXPECTED_CATEGORIES = {
     "arts": 8,
     "school": 8,
     "tutor": 8,
+    "policy": 9,
+    "uni": 9,
 }
-TOTAL_EXPECTED_JOBS = 32
+TOTAL_EXPECTED_JOBS = 50
 
 COMMON_USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "

@@ -1,13 +1,13 @@
 """
 Tier 1: Feature Coverage & Core Data Contract Tests
 Verifies:
-- 32 job records in index.html `const JOBS`
-- Exact 8/8/8/8 category distribution (museum, arts, school, tutor)
+- 50 job records in index.html `const JOBS`
+- Exact 8/8/8/8/9/9 category distribution (museum, arts, school, tutor, policy, uni)
 - Direct vacancy deep-link structure (zero generic homepages or /careers landing hubs)
 - Live HTTP 200 deep-link reachability
-- Explicit closing dates / deadlines present for all 32 listings
-- Verified salary/grade present for all 32 listings
-- 32 matching sections in gurmeet-london-application-pack.md
+- Explicit closing dates / deadlines present for all 50 listings
+- Verified salary/grade present for all 50 listings
+- 50 matching sections in gurmeet-london-application-pack.md
 """
 
 import os
@@ -31,8 +31,8 @@ class TestTier1Features(unittest.TestCase):
         cls.dossier = load_application_pack()
         cls.skip_network = os.environ.get("SKIP_NETWORK", "").lower() in ("1", "true", "yes")
 
-    def test_total_job_count_is_32(self):
-        """Tier 1.1: Verify exactly 32 job records exist in const JOBS."""
+    def test_total_job_count_is_50(self):
+        """Tier 1.1: Verify exactly 50 job records exist in const JOBS."""
         actual_count = len(self.jobs)
         self.assertEqual(
             actual_count,
@@ -40,8 +40,8 @@ class TestTier1Features(unittest.TestCase):
             f"Expected exactly {TOTAL_EXPECTED_JOBS} jobs in const JOBS, but found {actual_count}.",
         )
 
-    def test_exact_category_distribution_8_8_8_8(self):
-        """Tier 1.2: Verify exact 8/8/8/8 distribution across 4 core sectors."""
+    def test_exact_category_distribution_8_8_8_8_9_9(self):
+        """Tier 1.2: Verify exact 8/8/8/8/9/9 distribution across 6 core sectors."""
         counts: Dict[str, int] = {}
         for job in self.jobs:
             cat = job.get("category", "MISSING")
@@ -60,11 +60,11 @@ class TestTier1Features(unittest.TestCase):
 
         self.assertFalse(
             mismatches,
-            "Category distribution mismatch (required 8/8/8/8):\n  " + "\n  ".join(mismatches),
+            "Category distribution mismatch (required 8/8/8/8/9/9):\n  " + "\n  ".join(mismatches),
         )
 
     def test_all_deep_links_structure_non_generic(self):
-        """Tier 1.3: Verify all 32 apply_url entries are direct deep-links (no generic careers portals)."""
+        """Tier 1.3: Verify all 50 apply_url entries are direct deep-links (no generic careers portals)."""
         generic_links = []
         invalid_urls = []
 
@@ -86,7 +86,7 @@ class TestTier1Features(unittest.TestCase):
         )
 
     def test_all_deep_links_http_200(self):
-        """Tier 1.4: Verify all 32 direct vacancy URLs are live and return HTTP 200."""
+        """Tier 1.4: Verify all 50 direct vacancy URLs are live and return HTTP 200."""
         if self.skip_network:
             self.skipTest("Network test skipped via SKIP_NETWORK environment variable.")
 
@@ -168,7 +168,7 @@ class TestTier1Features(unittest.TestCase):
         )
 
     def test_application_pack_sections_count(self):
-        """Tier 1.7: Verify gurmeet-london-application-pack.md has 32 dossier sections."""
+        """Tier 1.7: Verify gurmeet-london-application-pack.md has 50 dossier sections."""
         actual_count = len(self.dossier)
         self.assertEqual(
             actual_count,

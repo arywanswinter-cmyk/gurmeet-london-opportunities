@@ -119,6 +119,8 @@ class TestTier3CrossFeatures(unittest.TestCase):
             "arts": "count-arts",
             "school": "count-school",
             "tutor": "count-tutor",
+            "policy": "count-policy",
+            "uni": "count-uni",
         }
 
         # Calculate actual counts from JOBS
@@ -159,16 +161,16 @@ class TestTier3CrossFeatures(unittest.TestCase):
         )
 
     def test_job_id_schema_and_uniqueness(self):
-        """Tier 3.5: Verify 32 unique job IDs following strict schema prefix format."""
+        """Tier 3.5: Verify 50 unique job IDs following strict schema prefix format."""
         ids = [j.get("id") for j in self.jobs]
         self.assertEqual(len(ids), len(set(ids)), f"Duplicate job IDs detected: {ids}")
 
-        id_pattern = re.compile(r"^(mus|art|sch|tut)-\d{2}$")
+        id_pattern = re.compile(r"^(mus|art|sch|tut|gov|uni)-\d{2}$")
         invalid_ids = [jid for jid in ids if not jid or not id_pattern.match(jid)]
 
         self.assertFalse(
             invalid_ids,
-            f"Job IDs not matching schema (mus-01..08, art-01..08, sch-01..08, tut-01..08): {invalid_ids}",
+            f"Job IDs not matching schema (mus-01..08, art-01..08, sch-01..08, tut-01..08, gov-01..09, uni-01..09): {invalid_ids}",
         )
 
 

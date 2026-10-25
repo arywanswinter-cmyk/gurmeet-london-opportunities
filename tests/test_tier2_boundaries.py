@@ -40,7 +40,7 @@ class TestTier2Boundaries(unittest.TestCase):
         cls.jobs = load_jobs_from_index()
 
     def test_geolocation_within_greater_london_bounds(self):
-        """Tier 2.1: Verify all 32 coordinates are strictly within Greater London boundary box."""
+        """Tier 2.1: Verify all 50 coordinates are strictly within Greater London boundary box."""
         out_of_bounds = []
         lat_min = GREATER_LONDON_BOUNDS["lat_min"]
         lat_max = GREATER_LONDON_BOUNDS["lat_max"]
