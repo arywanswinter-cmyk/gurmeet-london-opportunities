@@ -10,7 +10,7 @@
 - **Remuneration**: £31,500 – £35,500 / yr (Full-Time · Permanent)
 - **Location**: South Kensington, SW7 2RL (1.55 mi from SW6)
 - **Commute**: 18 min — Overground to West Brompton (1 stop) + District Line to South Kensington (3 stops, or 14 min cycle)
-- **Careers Portal**: [https://www.vam.ac.uk/info/jobs](https://www.vam.ac.uk/info/jobs)
+- **Careers Portal**: [https://www.vam.ac.uk/info/careers](https://www.vam.ac.uk/info/careers)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `careers@vam.ac.uk`  
@@ -491,7 +491,7 @@ Gurmeet Kaur
 - **Remuneration**: £29,000 – £33,000 / yr (Full-Time · Permanent)
 - **Location**: Lewisham / City of London, SE13 7HB (7.48 mi from SW6)
 - **Commute**: 36 min — Overground to Clapham Junction (1 stop, 7 min) + fast train to Lewisham (22 min)
-- **Careers Portal**: [https://www.migrationmuseum.org/vacancies](https://www.migrationmuseum.org/vacancies)
+- **Careers Portal**: [https://www.migrationmuseum.org/?module=vacancies-volunteering](https://www.migrationmuseum.org/?module=vacancies-volunteering)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `info@migrationmuseum.org`  
@@ -612,7 +612,7 @@ Gurmeet Kaur
 - **Remuneration**: £32,000 – £36,000 / yr (Full-Time · Permanent)
 - **Location**: Hammersmith, W6 0QL (2.25 mi from SW6)
 - **Commute**: 16 min — Overground to West Brompton (1 stop) + District Line to Hammersmith (3 stops)
-- **Careers Portal**: [https://lyric.co.uk/about-us/work-with-us/](https://lyric.co.uk/about-us/work-with-us/)
+- **Careers Portal**: [https://lyric.co.uk/who-we-are/work-with-us/](https://lyric.co.uk/who-we-are/work-with-us/)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `recruitment@lyric.co.uk`  
@@ -1271,7 +1271,7 @@ Gurmeet Kaur
 - **Remuneration**: £250 – £320 / day (Workshop Facilitator Pool · £250–£320 / day)
 - **Location**: Bethnal Green, E2 9PA (6.63 mi from SW6)
 - **Commute**: 40 min — Overground to West Brompton + District Line to Whitechapel + Overground to Bethnal Green
-- **Careers Portal**: [https://www.vam.ac.uk/info/jobs](https://www.vam.ac.uk/info/jobs)
+- **Careers Portal**: [https://www.vam.ac.uk/info/careers](https://www.vam.ac.uk/info/careers)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `careers@vam.ac.uk`  
@@ -1573,7 +1573,7 @@ Gurmeet Kaur
 - **Remuneration**: £42,000 – £56,000 / yr (Full-Time · Competitive Independent Scale)
 - **Location**: Hugon Road, Sands End, SW6 3ES (0.54 mi from SW6)
 - **Commute**: 8 min walk — 0.58 mi south down Hugon Road in Sands End
-- **Careers Portal**: [https://www.thomas-s.co.uk/join-our-team/](https://www.thomas-s.co.uk/join-our-team/)
+- **Careers Portal**: [https://www.thomas-s.co.uk/about-us/join-our-team/](https://www.thomas-s.co.uk/about-us/join-our-team/)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `fulhamrecruitment@thomas-s.co.uk`  
@@ -1813,7 +1813,7 @@ Gurmeet Kaur
 - **Remuneration**: £48,000 – £66,000 / yr (Full-Time · Latymer Independent Scale)
 - **Location**: King Street, Hammersmith, W6 9LR (2.57 mi from SW6)
 - **Commute**: 18 min — Overground to West Brompton + District Line to Ravenscourt Park / Hammersmith
-- **Careers Portal**: [https://latymer.ciphr-irecruit.com/templates/CIPHR/job_list.aspx](https://latymer.ciphr-irecruit.com/templates/CIPHR/job_list.aspx)
+- **Careers Portal**: [https://latymer.ciphr-irecruit.com/applicants/vacancy](https://latymer.ciphr-irecruit.com/applicants/vacancy)
 
 #### ✉️ Draft Speculative / Outreach Email
 **To**: `recruitment@latymer-upper.org`  
