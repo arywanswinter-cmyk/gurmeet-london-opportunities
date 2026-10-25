@@ -1,5 +1,5 @@
 # Gurmeet Kaur — London Opportunities Application Dossier
-> 41 Verified Live Vacancies across Greater London with Calibrated Commutes from Imperial Wharf (SW6 2ZH)
+> 50 Verified Live Vacancies across Greater London with Calibrated Commutes from Imperial Wharf (SW6 2ZH)
 > Base: Imperial Wharf, London SW6 2ZH | Contact: gurmsk@protonmail.com | Portfolio: https://gurmeetkaur.netlify.app
 
 ---
